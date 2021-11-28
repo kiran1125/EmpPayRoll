@@ -1,5 +1,8 @@
 package com.bridgelabz;
 
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -33,5 +36,18 @@ public class EmployeePayRollService {
     }
     public void writeData(){
         System.out.println("Console writing : " + employeePayRollList.toString());
+    }
+    public void storeDataInToFile(EmployeePayRoll employeePayRoll){
+        File file = new File("E:\\JAVA\\java.txt");
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            ObjectOutputStream os = new ObjectOutputStream(fileOutputStream);
+            os.writeObject(employeePayRoll);
+            System.out.println("Success!!");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

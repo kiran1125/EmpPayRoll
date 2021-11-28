@@ -1,9 +1,11 @@
 package com.bridgelabz;
 
+import java.io.Serializable;
+
 /**
  * This class is the data of the employee
  */
-public class EmployeePayRoll {
+public class EmployeePayRoll implements Serializable {
     //Class level Attributes declaring them
     int id;
     String name;
