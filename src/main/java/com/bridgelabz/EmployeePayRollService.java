@@ -37,13 +37,25 @@ public class EmployeePayRollService {
     public void writeData(){
         System.out.println("Console writing : " + employeePayRollList.toString());
     }
-    public void storeDataInToFile(EmployeePayRoll employeePayRoll){
-        File file = new File("E:\\JAVA\\java.txt");
+    public void storeDataInToFile(){
+        File file = new File("E:\\JAVA\\javaoutput.txt");
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             ObjectOutputStream os = new ObjectOutputStream(fileOutputStream);
-            os.writeObject(employeePayRoll);
+            os.writeObject(employeePayRollList);
             System.out.println("Success!!");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void readDataFromFile(){
+        File file = new File("E:\\JAVA\\java.txt");
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            inputStream.read();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
